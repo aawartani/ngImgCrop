@@ -5,7 +5,7 @@
  * Copyright (c) 2015 Alex Kaul
  * License: MIT
  *
- * Generated at Monday, February 23rd, 2015, 3:58:25 PM
+ * Generated at Monday, March 2nd, 2015, 2:33:47 PM
  */
 (function() {
 'use strict';
@@ -1164,14 +1164,13 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
         };
 
         this.setAspectRatio = function (ratio) {
-            if (angular.isUndefined(ratio)) {
-                return;
-            }
             ratio = parseFloat(ratio);
             if (!isNaN(ratio)) {
                 theArea.setAspectRatio(ratio);
-                drawScene();
+            } else {
+                theArea.setAspectRatio(null);
             }
+            drawScene();
         };
 
         this.setCanvasSize = function (dimensions) {
