@@ -266,14 +266,13 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
         };
 
         this.setAspectRatio = function (ratio) {
-            if (angular.isUndefined(ratio)) {
-                return;
-            }
             ratio = parseFloat(ratio);
             if (!isNaN(ratio)) {
                 theArea.setAspectRatio(ratio);
-                drawScene();
+            } else {
+                theArea.setAspectRatio(null);
             }
+            drawScene();
         };
 
         this.setCanvasSize = function (dimensions) {
